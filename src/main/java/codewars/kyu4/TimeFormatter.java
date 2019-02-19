@@ -3,20 +3,39 @@ package codewars.kyu4;
 import java.time.LocalDateTime;
 import java.util.*;
 
+
 public class TimeFormatter {
+    public static void main(String[] args) {
+        System.out.println(formatDuration(80808));
+        System.out.println(formatDuration((365*24*3600)+80808));
+    }
 
     public static String formatDuration(int seconds) {
         if (seconds == 0) {
             return "now";
         }
 
-        LocalDateTime localTime = LocalDateTime.MIN.plusSeconds(seconds);
-        LinkedHashMap<String, Integer> timeValues = new LinkedHashMap<>();
-        timeValues.put("day", localTime.getDayOfYear() - 1);
-        timeValues.put("hour", localTime.getHour());
-        timeValues.put("minute", localTime.getMinute());
-        timeValues.put("second", localTime.getSecond());
+//        LocalDateTime localDateTime = LocalDateTime.MIN.plusSeconds(seconds);
 
+        int years = seconds / (365 * 24 * 3600);
+        seconds -= years * 365 * 24 * 3600;
+        int days = seconds / (24 * 3600);
+        seconds -= days * 24 * 3600;
+        int hours = seconds / (3600);
+        seconds -= hours * 3600;
+        int minutes = seconds / 60;
+        seconds -= minutes * 60;
+        int remainingSeconds = seconds % 60;
+        LinkedHashMap<String, Integer> timeValues = new LinkedHashMap<>();
+        timeValues.put("year", years);
+        timeValues.put("day", days);
+        timeValues.put("hour", hours);
+        timeValues.put("minute", minutes);
+        timeValues.put("second", remainingSeconds);
+
+        if (timeValues.get("year") == 0) {
+            timeValues.remove("year");
+        }
         if (timeValues.get("day") == 0) {
             timeValues.remove("day");
         }
