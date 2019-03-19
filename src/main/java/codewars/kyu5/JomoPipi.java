@@ -1,44 +1,58 @@
 package codewars.kyu5;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class JomoPipi {
     public static void main(String[] args) {
-        System.out.println(jumbledString("Greetings",8));
+        String s = "this_test_will_hurt_you";
+        while (s.length() < 1_000_000) {
+            System.out.println(s.length());
+            s += s;
+        }
+        System.out.println("done");
+        System.out.println("==========================");
+        jumbledString(s, 12345678987654321L);
     }
     
     public static String jumbledString(String s, long n) {
-        Set<String> stringSet = new HashSet<>();
+        List<String> stringSet = new ArrayList<>();
         String previousValue = s;
-        
         for (long i = 0; i < n; i++) {
-            Stream<String> evenStream = IntStream.range(0, s.length())
-                    .filter(j -> j % 2 == 0)
-                    .mapToObj(s::charAt)
-                    .map(String::valueOf);
-    
-            Stream<String> oddStream = IntStream.range(0, s.length())
-                    .filter(j -> j % 2 == 1)
-                    .mapToObj(s::charAt)
-                    .map(String::valueOf);
+            String tempHolder = jumbleStuff(previousValue);
+            System.out.println(tempHolder);
+            if (stringSet.contains(tempHolder)) {
+                break;
+            }
             
-            s = Stream.concat(evenStream,oddStream).collect(Collectors.joining());
-    
-//            if (stringSet.contains(s)) {
-//                break;
-//            }
-            stringSet.add(s);
-            previousValue = s;
-            System.out.println(i);
-            System.out.println(s);
+            stringSet.add(tempHolder);
+            previousValue = tempHolder;
         }
-    
-        System.out.println(stringSet.size());
+        
+        if (n <= stringSet.size()) {
+            previousValue = stringSet.get(stringSet.size()-1);
+        } else {
+            long timesLeftToDo =  n % stringSet.size();
+            previousValue = stringSet.get((int) timesLeftToDo-1);
+        }
+        
         return previousValue;
+    }
+    
+    public static String jumbleStuff(String s) {
+        LinkedList<Character> strings = new LinkedList<>();
+    
+        int even = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (i % 2 == 0) {
+                strings.add(even++,s.charAt(i));
+            } else {
+                strings.add(s.charAt(i));
+            }
+            System.out.println(strings);
+        }
+        
+        return strings.stream().map(String::valueOf).collect(Collectors.joining());
     }
     
 }
