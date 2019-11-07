@@ -1,6 +1,6 @@
 package codewars.kyu8;
 
-public class ZywOo {
+public class HowManyDalmatians {
   
   public static String howManyDalmatians(int number) {
     
