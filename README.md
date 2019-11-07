@@ -1,0 +1,3 @@
+# CodingChallenges
+
+Solutions for various coding challenges like CodeWars, Project Euler, CodingBat etc...
