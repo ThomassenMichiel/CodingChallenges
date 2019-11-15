@@ -1,18 +1,18 @@
 package codewars.kyu8;
 
-public class Dinglemouse {
+public class DingleMouseStaticElectrickery {
     
     public static void main(String[] args) {
-        System.out.println(Dinglemouse.INST.plus100(23));
+        System.out.println(DingleMouseStaticElectrickery.INST.plus100(23));
     }
     
-    public static final Dinglemouse INST = new Dinglemouse();
+    public static final DingleMouseStaticElectrickery INST = new DingleMouseStaticElectrickery();
     
     private final static int ONE_HUNDRED = 100;
     
     private final int value;
     
-    private Dinglemouse() {
+    private DingleMouseStaticElectrickery() {
         value = ONE_HUNDRED;
     }
     
