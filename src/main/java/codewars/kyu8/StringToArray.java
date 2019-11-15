@@ -1,6 +1,6 @@
 package codewars.kyu8;
 
-public class Solution {
+public class StringToArray {
 
     public static String[] stringToArray(String s) {
       return s.split(" ");
