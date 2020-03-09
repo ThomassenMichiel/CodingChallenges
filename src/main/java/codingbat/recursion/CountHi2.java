@@ -5,6 +5,7 @@ public class CountHi2 {
         if (str.length() < 3) {
             return 0;
         }
+        
         int count = 0;
         if (str.substring(0,3).matches("(?!x)[^x]hi")) {
             count++;
