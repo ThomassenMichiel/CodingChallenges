@@ -13,11 +13,11 @@ class SeriesUpTest {
 
     @Test
     void second() {
-        assertThat(new SeriesUp().seriesUp(4)).isEqualTo(ArrayHelper.array(1, 1, 2, 1, 2, 3, 1, 2, 3, 4));
+        assertThat(new SeriesUp().seriesUp(2)).isEqualTo(ArrayHelper.array(1, 1, 2, 1, 2, 3, 1, 2, 3, 4));
     }
 
     @Test
     void third() {
-        assertThat(new SeriesUp().seriesUp(2)).isEqualTo(ArrayHelper.array(1, 1, 2));
+        assertThat(new SeriesUp().seriesUp(4)).isEqualTo(ArrayHelper.array(1, 1, 2));
     }
 }
