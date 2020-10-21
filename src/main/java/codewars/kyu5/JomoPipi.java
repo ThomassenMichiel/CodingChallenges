@@ -1,51 +1,38 @@
 package codewars.kyu5;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
 public class JomoPipi {
-    
-    public static void main(String[] args) {
-    }
-    
+
     public static String jumbledString(String s, long n) {
-        List<String> stringSet = new ArrayList<>();
-        String previousValue = s;
-    
-        int timesToGo = s.length() % 4;
-        if (timesToGo > n) {
-            timesToGo = (int) n;
-        }
-        for (long i = 0; i < n; i++) {
-            String tempHolder = jumbleStuff(previousValue);
-    
-            System.out.println(tempHolder);
-            
-            if (stringSet.contains(tempHolder)) {
+        String original = s;
+        int count = 1;
+        for (int i = 1; i <= n; i++) {
+            s = jumble(s);
+            if (s.equals(original)) {
+                count = i;
                 break;
             }
-            
-            stringSet.add(tempHolder);
-            previousValue = tempHolder;
         }
-        
-        return previousValue;
+        n %= count;
+        if (n == 0) {
+            return s;
+        }
+
+        for (long i = 0; i < n; i++) {
+            original = jumble(original);
+        }
+        return original;
     }
-    
-    public static String jumbleStuff(String previousValue) {
-        Stream<String> evenStream = IntStream.range(0, previousValue.length())
-                .filter(j -> j % 2 == 0)
-                .mapToObj(previousValue::charAt)
-                .map(String::valueOf);
-        
-        Stream<String> oddStream = IntStream.range(0, previousValue.length())
-                .filter(j -> j % 2 == 1)
-                .mapToObj(previousValue::charAt)
-                .map(String::valueOf);
-        
-        return Stream.concat(evenStream, oddStream).collect(Collectors.joining());
+
+    public static String jumble(String s) {
+        char[] chars = s.toCharArray();
+        char[] result = new char[s.length()];
+        for (int j = 0, k = 0, l = (s.length()+1) / 2; j < chars.length; j++) {
+            if (j % 2 == 0) {
+                result[k++] = chars[j];
+            } else {
+                result[l++] = chars[j];
+            }
+        }
+        return String.valueOf(result);
     }
-    
 }
