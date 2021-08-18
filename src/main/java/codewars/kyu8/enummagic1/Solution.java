@@ -1,4 +1,4 @@
-package codewars.kyu7.enummagic1;
+package codewars.kyu8.enummagic1;
 
 import java.util.Arrays;
 import java.util.function.IntPredicate;

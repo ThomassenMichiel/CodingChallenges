@@ -1,9 +1,8 @@
-package codewars.kyu7.enummagic1;
+package codewars.kyu8.enummagic1;
 
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import org.junit.runners.JUnit4;
 
 import java.util.function.IntPredicate;
 
