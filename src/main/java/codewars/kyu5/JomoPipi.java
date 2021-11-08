@@ -1,7 +1,10 @@
 package codewars.kyu5;
 
+/**
+ * url: https://www.codewars.com/kata/5ae43ed6252e666a6b0000a4
+ */
 public class JomoPipi {
-
+    
     public static String jumbledString(String s, long n) {
         String original = s;
         int count = 1;
@@ -16,13 +19,13 @@ public class JomoPipi {
         if (n == 0) {
             return s;
         }
-
+        
         for (long i = 0; i < n; i++) {
             original = jumble(original);
         }
         return original;
     }
-
+    
     public static String jumble(String s) {
         char[] chars = s.toCharArray();
         char[] result = new char[s.length()];
@@ -35,4 +38,5 @@ public class JomoPipi {
         }
         return String.valueOf(result);
     }
+    
 }

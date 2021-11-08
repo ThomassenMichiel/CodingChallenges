@@ -23,11 +23,4 @@ class JomoPipiTest {
         String s = "Greetings", a = "Gtsegenri";
         assertEquals(a, JomoPipi.jumbledString(s,8));
     }
-
-    @Test
-    @Timeout(1)
-    public void fixedLargeTests() {
-        String s = "codingisfornerdsyounerd";
-        assertEquals("a", JomoPipi.jumbledString(s,11));
-    }
 }
