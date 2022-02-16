@@ -1,5 +1,7 @@
 package codewars.kyu7.funwithlists.length;
 
+import codewars.kyu7.funwithlists.Node;
+
 /**
  * url: https://www.codewars.com/kata/581e476d5f59408553000a4b/
  */

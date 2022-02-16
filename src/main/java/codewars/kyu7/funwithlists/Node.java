@@ -1,6 +1,6 @@
-package codewars.kyu7.funwithlists.length;
+package codewars.kyu7.funwithlists;
 
-class Node<T> {
+public class Node<T> {
     public Object data;
     public Node next;
     
