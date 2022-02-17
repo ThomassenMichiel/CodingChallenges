@@ -1,4 +1,4 @@
-package codewars.kyu7.funwithlists.countif;
+package codewars.kyu6.funwithlists.countif;
 
 import codewars.kyu7.funwithlists.Node;
 
