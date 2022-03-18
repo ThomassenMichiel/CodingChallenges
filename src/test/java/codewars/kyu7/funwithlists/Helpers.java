@@ -1,5 +1,9 @@
 package codewars.kyu7.funwithlists;
 
+import org.junit.jupiter.api.Assertions;
+
+import java.util.function.Predicate;
+
 public class Helpers {
     public static Node<?> listFromArray(Object... objects) {
         Node<?> currentNode = new Node<>(objects[0]);
